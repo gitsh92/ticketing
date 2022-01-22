@@ -4,6 +4,11 @@ import { json } from 'body-parser';
 const app = express();
 app.use(json());
 
+app.use((req, res, next) => {
+  console.log('received request');
+  next();
+});
+
 app.get('/api/users/currentuser', (req, res) => {
   res.send('hi');
 });
