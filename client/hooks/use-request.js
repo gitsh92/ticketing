@@ -7,6 +7,7 @@ export default ({ url, method, body, onSuccess }) => {
   const doRequest = async () => {
     try {
       setErrors(null);
+
       const response = await axios[method](url, body);
 
       if (onSuccess) {
@@ -15,7 +16,6 @@ export default ({ url, method, body, onSuccess }) => {
 
       return response.data;
     } catch (err) {
-      console.log(err);
       setErrors(
         <div className="alert alert-danger">
           <h4>Oops...</h4>
